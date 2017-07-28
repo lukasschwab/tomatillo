@@ -6,8 +6,8 @@ var COLORS = {
   "limetext": "hsla(146, 100%, 20%, 1.0)"
 }
 var DEFAULT_TIMES = {
-  "work": 45, FIXME
-  "break": 15 FIXME
+  "work": 45,
+  "break": 15
   // "work": .3,
   // "break": .1
 }
