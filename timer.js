@@ -5,8 +5,14 @@ var COLORS = {
   "lime": "#01FF70",
   "limetext": "hsla(146, 100%, 20%, 1.0)"
 }
+var DEFAULT_TIMES = {
+  "work": 45, FIXME
+  "break": 15 FIXME
+  // "work": .3,
+  // "break": .1
+}
 
-function notify() {
+function notify(intoWork) {
   if (!("Notification" in window)) {
     console.log("This browser does not support desktop notification");
   } else if (Notification.permission === "granted") {
@@ -15,6 +21,7 @@ function notify() {
     } else {
       var notification = new Notification("Take a break!")
     }
+    // NOTE: I comment this out when testing locally because notifications break.
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission(function (p) {
       console.log(p)
@@ -60,11 +67,17 @@ function initializeWorkClock(endtime) {
 // Trigger UI for switch to break timer
 function switchToBreak() {
   // Change background/text colors
-  intoWork = false;
   document.body.style.backgroundColor = COLORS.lime;
   document.body.style.color = COLORS.limetext;
-  notify()
-  initializeBreakClock(new Date(Date.parse(new Date()) + 5 * 1000))
+  notify(false)
+  // Set the new timer
+  var duration;
+  if (parseInt(breakSetting.value)) {
+    duration = parseInt(breakSetting.value) * 60 * 1000;
+  } else {
+    duration = DEFAULT_TIMES.break * 60 * 1000;
+  }
+  initializeBreakClock(new Date(Date.parse(new Date()) + duration))
 }
 
 function initializeBreakClock(endtime) {
@@ -85,19 +98,26 @@ function initializeBreakClock(endtime) {
 
 // Trigger UI for switch to work timer
 function switchToWork() {
-  intoWork = true;
   document.body.style.backgroundColor = COLORS.red;
   document.body.style.color = COLORS.redtext;
-  notify()
-  initializeWorkClock(new Date(Date.parse(new Date()) + 10 * 1000))
+  notify(true);
+  // Calculate next work duration, initialize clock
+  var duration;
+  if (parseInt(workSetting.value)) {
+    duration = parseInt(workSetting.value) * 60 * 1000;
+  } else {
+    duration = DEFAULT_TIMES.work * 60 * 1000;
+  }
+  initializeWorkClock(new Date(Date.parse(new Date()) + duration))
 }
 
 // Load with initial timer set
 var deadline = new Date(Date.parse(new Date()) + 10 * 1000);
-// Pull elements form document
+// Pull elements from document
 var clock = document.getElementById(CLOCK_ID);
 var minutesSpan = clock.querySelector('.minutes');
 var secondsSpan = clock.querySelector('.seconds');
+var workSetting = document.getElementById("workMinutes")
+var breakSetting = document.getElementById("breakMinutes")
 // Start with work
-var intoWork = true;
 switchToWork();
