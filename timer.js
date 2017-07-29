@@ -13,12 +13,10 @@ function notify(intoWork) {
     if (intoWork) {
       var notification = new Notification("Tomatillo", {
         "body": "Start working!",
-        "icon": "favicon-red.ico"
       })
     } else {
       var notification = new Notification("Tomatillo", {
         "body": "Take a break!",
-        "icon": "favicon-green.ico"
       })
     }
     // NOTE: I comment this out when testing locally because notifications break.
@@ -28,12 +26,10 @@ function notify(intoWork) {
         if (intoWork) {
           var notification = new Notification("Tomatillo", {
             "body": "Start working!",
-            "icon": "favicon-red.ico"
           })
         } else {
           var notification = new Notification("Tomatillo", {
             "body": "Take a break!",
-            "icon": "favicon-green.ico"
           })
         }
       }
