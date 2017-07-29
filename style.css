@@ -4,7 +4,7 @@ body {
     font-family: 'Share', cursive;
     font-weight: normal;
     text-align: center;
-    margin-top: 25vh;
+    margin-top: 35vh;
     margin-bottom: 25vh;
 }
 
@@ -44,4 +44,8 @@ a {
 
 a:visited {
     color: #001F3F;
+}
+
+a:hover {
+    opacity: 0.7;
 }
