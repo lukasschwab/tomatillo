@@ -5,12 +5,6 @@ var COLORS = {
   "lime": "#01FF70",
   "limetext": "#001F3F"
 }
-var DEFAULT_TIMES = {
-  // "work": 45,
-  // "break": 15 FIXME
-  "work": 1,
-  "break": 1
-}
 
 function notify(intoWork) {
   if (!("Notification" in window)) {
