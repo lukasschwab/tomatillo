@@ -6,10 +6,10 @@ var COLORS = {
   "limetext": "#001F3F"
 }
 var DEFAULT_TIMES = {
-  "work": 45,
-  "break": 15
-  // "work": .3,
-  // "break": .1
+  // "work": 45,
+  // "break": 15
+  "work": 1,
+  "break": 1
 }
 
 function notify(intoWork) {
@@ -71,6 +71,7 @@ function switchToBreak() {
   workSetting.style.color = COLORS.lime;
   breakSetting.style.background = COLORS.limetext;
   breakSetting.style.color = COLORS.lime;
+  favicon.setAttribute("href", "favicon-green.ico");
   notify(false)
   // Set the new timer
   var duration;
@@ -106,6 +107,7 @@ function switchToWork() {
   workSetting.style.color = COLORS.red;
   breakSetting.style.background = COLORS.redtext;
   breakSetting.style.color = COLORS.red;
+  favicon.setAttribute("href", "favicon-red.ico");
   notify(true);
   // Calculate next work duration, initialize clock
   var duration;
@@ -117,15 +119,14 @@ function switchToWork() {
   initializeWorkClock(new Date(Date.parse(new Date()) + duration))
 }
 
-// Load with initial timer set
-var deadline = new Date(Date.parse(new Date()) + 10 * 1000);
 // Pull elements from document
+var favicon = document.getElementById("favicon");
 var clock = document.getElementById(CLOCK_ID);
 var minutesSpan = clock.querySelector('.minutes');
 var secondsSpan = clock.querySelector('.seconds');
-var workSetting = document.getElementById("workMinutes")
-workSetting.value = "45"
-var breakSetting = document.getElementById("breakMinutes")
-breakSetting.value = "15"
+var workSetting = document.getElementById("workMinutes");
+workSetting.value = DEFAULT_TIMES.work;
+var breakSetting = document.getElementById("breakMinutes");
+breakSetting.value = DEFAULT_TIMES.break;
 // Start with work
 switchToWork();
