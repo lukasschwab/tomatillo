@@ -11,18 +11,30 @@ function notify(intoWork) {
     console.log("This browser does not support desktop notification");
   } else if (Notification.permission === "granted") {
     if (intoWork) {
-      var notification = new Notification("Start working!")
+      var notification = new Notification("Tomatillo", {
+        "body": "Start working!"
+        "image": "favicon-red.ico"
+      })
     } else {
-      var notification = new Notification("Take a break!")
+      var notification = new Notification("Tomatillo", {
+        "body": "Take a break!",
+        "image": "favicon-green.ico"
+      })
     }
     // NOTE: I comment this out when testing locally because notifications break.
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission(function (p) {
       if (p === "granted") {
         if (intoWork) {
-          var notification = new Notification("Start working!")
+          var notification = new Notification("Tomatillo", {
+            "body": "Start working!"
+            "image": "favicon-red.ico"
+          })
         } else {
-          var notification = new Notification("Take a break!")
+          var notification = new Notification("Tomatillo", {
+            "body": "Take a break!",
+            "image": "favicon-green.ico"
+          })
         }
       }
     })
