@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Share:400,700');
 
 body {
+    transition: all 0.5s ease;
     font-family: 'Share', cursive;
     font-weight: normal;
     text-align: center;
@@ -40,6 +41,7 @@ input {
 
 a {
     color: #001F3F;
+    transition: all 0.2s ease;
 }
 
 a:visited {

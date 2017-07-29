@@ -10,5 +10,3 @@ Tomatillo is a tiny pomodoro timer, inspired by some tough times and [the Pink M
     + Notification fields
 
 + Pause button
-
-+ Transitions for style changes
