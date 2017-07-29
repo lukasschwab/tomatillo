@@ -1,9 +1,9 @@
 var CLOCK_ID = 'clockdiv'
 var COLORS = {
   "red": "#FF4136",
-  "redtext": "hsla(3, 100%, 25%, 1.0)",
+  "redtext": "#001F3F",
   "lime": "#01FF70",
-  "limetext": "hsla(146, 100%, 20%, 1.0)"
+  "limetext": "#001F3F"
 }
 var DEFAULT_TIMES = {
   "work": 45,
@@ -24,8 +24,6 @@ function notify(intoWork) {
     // NOTE: I comment this out when testing locally because notifications break.
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission(function (p) {
-      console.log(p)
-      console.log(intoWork)
       if (p === "granted") {
         if (intoWork) {
           var notification = new Notification("Start working!")
@@ -69,6 +67,10 @@ function switchToBreak() {
   // Change background/text colors
   document.body.style.backgroundColor = COLORS.lime;
   document.body.style.color = COLORS.limetext;
+  workSetting.style.background = COLORS.limetext;
+  workSetting.style.color = COLORS.lime;
+  breakSetting.style.background = COLORS.limetext;
+  breakSetting.style.color = COLORS.lime;
   notify(false)
   // Set the new timer
   var duration;
@@ -100,6 +102,10 @@ function initializeBreakClock(endtime) {
 function switchToWork() {
   document.body.style.backgroundColor = COLORS.red;
   document.body.style.color = COLORS.redtext;
+  workSetting.style.background = COLORS.redtext;
+  workSetting.style.color = COLORS.red;
+  breakSetting.style.background = COLORS.redtext;
+  breakSetting.style.color = COLORS.red;
   notify(true);
   // Calculate next work duration, initialize clock
   var duration;
@@ -118,6 +124,8 @@ var clock = document.getElementById(CLOCK_ID);
 var minutesSpan = clock.querySelector('.minutes');
 var secondsSpan = clock.querySelector('.seconds');
 var workSetting = document.getElementById("workMinutes")
+workSetting.value = "45"
 var breakSetting = document.getElementById("breakMinutes")
+breakSetting.value = "15"
 // Start with work
 switchToWork();

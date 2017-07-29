@@ -1,16 +1,19 @@
-<h1>tomatillo</h1>
-<div id="clockdiv">
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
+<head>
+  <title>Tomatillo</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <p id="modeTitle">work / break</p>
+  <div id="clockdiv">
+    <div>
+      <span class="minutes"></span> minutes <span class="seconds"></span></div>
+    </div>
   </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
+  <div id="workInput" class="input">
+    <input name="workMinutes" type="text" maxlength="3" id="workMinutes" class="setting" placeholder="45"><br>work
   </div>
-</div>
-<div id="inputdiv">
-  <p>Work minutes: <input name="workMinutes" type="text" maxlength="3" id="workMinutes" class="setting" placeholder="45"></p>
-  <p>Break minutes: <input name="breakMinutes" type="text" maxlength="3" id="breakMinutes" class="setting" placeholder="15"></p>
-</div>
+  <div id="breakInput" class="input">
+    <input name="breakMinutes" type="text" maxlength="3" id="breakMinutes" class="setting" placeholder="15"><br>break
+  </div>
+</body>
 <script src="timer.js"></script>

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Share:400,700');
+
+body {
+    font-family: 'Share', cursive;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+}
+
+#modeTitle {
+    font-size: 30px;
+}
+
+#clockdiv {
+    font-weight: bold;
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+/* The fields themselves*/
+input {
+    font-size: 2em;
+    width: 2em;
+    text-align: center;
+    height: 2em;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    margin: 0 15px 0 15px;
+}
+
+.input {
+    display: inline-block;
+    line-height: 1.5em;
+    text-align: center;
+    /*font-size: 1.5em;*/
+}
