@@ -7,13 +7,8 @@ Tomatillo is a tiny pomodoro timer, inspired by some tough times and [the Pink M
 + A proper README.
 
 + Style
-    + Site
     + Notification fields
 
 + Pause button
 
-+ Favicons
-
 + Transitions for style changes
-
-+ "start" button for first load?
