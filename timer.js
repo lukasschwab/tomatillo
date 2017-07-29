@@ -12,7 +12,7 @@ function notify(intoWork) {
   } else if (Notification.permission === "granted") {
     if (intoWork) {
       var notification = new Notification("Tomatillo", {
-        "body": "Start working!"
+        "body": "Start working!",
         "image": "favicon-red.ico"
       })
     } else {
@@ -27,7 +27,7 @@ function notify(intoWork) {
       if (p === "granted") {
         if (intoWork) {
           var notification = new Notification("Tomatillo", {
-            "body": "Start working!"
+            "body": "Start working!",
             "image": "favicon-red.ico"
           })
         } else {
