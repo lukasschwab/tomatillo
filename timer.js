@@ -13,12 +13,12 @@ function notify(intoWork) {
     if (intoWork) {
       var notification = new Notification("Tomatillo", {
         "body": "Start working!",
-        "image": "favicon-red.ico"
+        "icon": "favicon-red.ico"
       })
     } else {
       var notification = new Notification("Tomatillo", {
         "body": "Take a break!",
-        "image": "favicon-green.ico"
+        "icon": "favicon-green.ico"
       })
     }
     // NOTE: I comment this out when testing locally because notifications break.
@@ -28,12 +28,12 @@ function notify(intoWork) {
         if (intoWork) {
           var notification = new Notification("Tomatillo", {
             "body": "Start working!",
-            "image": "favicon-red.ico"
+            "icon": "favicon-red.ico"
           })
         } else {
           var notification = new Notification("Tomatillo", {
             "body": "Take a break!",
-            "image": "favicon-green.ico"
+            "icon": "favicon-green.ico"
           })
         }
       }
