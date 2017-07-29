@@ -35,4 +35,13 @@ input {
     line-height: 1.5em;
     text-align: center;
     /*font-size: 1.5em;*/
+    margin-bottom: 15px;
+}
+
+a {
+    color: #001F3F;
+}
+
+a:visited {
+    color: #001F3F;
 }

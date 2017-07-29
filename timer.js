@@ -7,7 +7,7 @@ var COLORS = {
 }
 var DEFAULT_TIMES = {
   // "work": 45,
-  // "break": 15
+  // "break": 15 FIXME
   "work": 1,
   "break": 1
 }
@@ -54,17 +54,18 @@ function initializeWorkClock(endtime) {
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
     if (t.total <= 0) {
-      clearInterval(timeinterval);
+      // clearInterval(timeinterval);
       switchToBreak();
     }
   }
   updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
+  timeinterval = setInterval(updateClock, 1000);
 }
 
 // Trigger UI for switch to break timer
 function switchToBreak() {
-  // Change background/text colors
+  clearInterval(timeinterval)
+  modeTitle.innerHTML = "break";
   document.body.style.backgroundColor = COLORS.lime;
   document.body.style.color = COLORS.limetext;
   workSetting.style.background = COLORS.limetext;
@@ -91,16 +92,17 @@ function initializeBreakClock(endtime) {
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
     if (t.total <= 0) {
-      clearInterval(timeinterval);
       switchToWork();
     }
   }
   updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
+  timeinterval = setInterval(updateClock, 1000);
 }
 
 // Trigger UI for switch to work timer
 function switchToWork() {
+  clearInterval(timeinterval)
+  modeTitle.innerHTML = "work";
   document.body.style.backgroundColor = COLORS.red;
   document.body.style.color = COLORS.redtext;
   workSetting.style.background = COLORS.redtext;
@@ -119,8 +121,10 @@ function switchToWork() {
   initializeWorkClock(new Date(Date.parse(new Date()) + duration))
 }
 
+var timeinterval;
 // Pull elements from document
 var favicon = document.getElementById("favicon");
+var modeTitle = document.getElementById("modeTitle");
 var clock = document.getElementById(CLOCK_ID);
 var minutesSpan = clock.querySelector('.minutes');
 var secondsSpan = clock.querySelector('.seconds');
