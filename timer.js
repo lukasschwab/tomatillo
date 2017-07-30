@@ -109,6 +109,7 @@ function initializeBreakClock(endtime) {
 function switchToWork() {
   clearInterval(timeinterval)
   modeTitle.innerHTML = "work";
+  window.navigator.vibrate(200);
   document.body.style.backgroundColor = COLORS.red;
   document.body.style.color = COLORS.redtext;
   workSetting.style.background = COLORS.redtext;
