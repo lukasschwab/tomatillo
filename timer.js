@@ -40,7 +40,7 @@ function notify(intoWork) {
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var minutes = Math.floor(t / 1000 / 60);
   return {
     'total': t,
     'minutes': minutes,
@@ -52,7 +52,11 @@ function initializeWorkClock(endtime) {
   function updateClock() {
     var t = getTimeRemaining(endtime);
 
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    if (t.minutes < 10) {
+      minutesSpan.innerHTML = ('0' + t.minutes);
+    } else {
+      minutesSpan.innerHTML = (t.minutes);
+    }
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
     if (t.total <= 0) {

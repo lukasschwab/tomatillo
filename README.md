@@ -6,7 +6,6 @@ Tomatillo is a tiny pomodoro timer, inspired by some tough times and [the Pink M
 
 + A proper README.
 
-+ Style
-    + Notification fields
-
 + Pause button
+
++ Add theme colors for mobile: https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
